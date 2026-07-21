@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Game Watcher</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #0c0c0c;
+      color: #e8e8e8;
+      line-height: 1.7;
+      padding: 0 16px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 32px 0 24px;
+      border-bottom: 1px solid #222;
+      margin-bottom: 36px;
+    }
+
+    header img {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #ff9800;
+    }
+
+    header p {
+      font-size: 0.85rem;
+      color: #888;
+      margin-top: 2px;
+    }
+
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding-bottom: 60px;
+    }
+
+    h2 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #ff9800;
+      margin: 32px 0 10px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #1e1e1e;
+    }
+
+    p { margin-bottom: 12px; color: #ccc; }
+
+    ul {
+      padding-left: 20px;
+      margin-bottom: 12px;
+      color: #ccc;
+    }
+
+    ul li { margin-bottom: 6px; }
+
+    a { color: #ff9800; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .updated {
+      font-size: 0.82rem;
+      color: #555;
+      margin-bottom: 28px;
+    }
+
+    footer {
+      margin-top: 48px;
+      padding-top: 20px;
+      border-top: 1px solid #1e1e1e;
+      font-size: 0.8rem;
+      color: #444;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<main>
+
+  <header>
+    <div>
+      <h1>Game Watcher</h1>
+      <p>Privacy Policy</p>
+    </div>
+  </header>
+
+  <p class="updated">Last updated: July 22, 2026</p>
+
+  <p>
+    Game Watcher ("the App") is a Steam analytics tool for indie game developers,
+    developed by oreordaz / Vertex Studio. This Privacy Policy describes what data
+    the App accesses, how it is used, and what it does not do.
+  </p>
+
+  <h2>1. Data We Do Not Collect</h2>
+  <p>
+    Game Watcher does not collect, store, transmit, or share any personal data with
+    the developer or any third party. Specifically:
+  </p>
+  <ul>
+    <li>No analytics or crash-reporting SDKs are embedded in the App.</li>
+    <li>No advertising identifiers, device fingerprints, or usage statistics are gathered.</li>
+    <li>No account registration is required and none is performed.</li>
+    <li>The developer has no visibility into which games you track, your Steam identity, or how you use the App.</li>
+  </ul>
+
+  <h2>2. Data Stored Locally on Your Device</h2>
+  <p>All information you enter into Game Watcher stays exclusively on your device:</p>
+  <ul>
+    <li><strong>Steam App IDs</strong> — the list of games you choose to monitor.</li>
+    <li><strong>Steam Publisher / Financial API key</strong> — stored in Android's encrypted Keystore (flutter_secure_storage); never transmitted to anyone except Valve's official Steam Partner API.</li>
+    <li><strong>Steam Web API key</strong> — stored identically in the encrypted Keystore.</li>
+    <li><strong>Steam ID (64-bit)</strong> — stored in the app's private SharedPreferences.</li>
+    <li><strong>Notification preferences and wishlist baselines</strong> — stored locally in SharedPreferences.</li>
+  </ul>
+  <p>
+    You can delete all stored data at any time by uninstalling the App or clearing its
+    data via Android Settings → Apps → Game Watcher → Clear data.
+  </p>
+
+  <h2>3. Data Sent to Third-Party Services</h2>
+  <p>
+    Game Watcher communicates exclusively with Valve Corporation's official Steam APIs
+    over HTTPS. The following endpoints are used:
+  </p>
+  <ul>
+    <li><code>store.steampowered.com</code> — public store data (prices, reviews, app details)</li>
+    <li><code>api.steampowered.com</code> — player counts, library data, achievements (using your Web API key)</li>
+    <li><code>partner.steam-api.com</code> — wishlist and sales data (using your Publisher key)</li>
+    <li><code>steamcommunity.com</code> — event news images (CDN)</li>
+  </ul>
+  <p>
+    Your API keys are included in outbound requests to these endpoints as required by
+    Steam's authentication mechanism — this is their intended use. Keys are never sent
+    to any server other than Steam's.
+  </p>
+  <p>
+    The App may also open links to <a href="https://steamdb.info" target="_blank">SteamDB</a>
+    and <a href="https://www.metacritic.com" target="_blank">Metacritic</a> in your
+    device's browser. Game Watcher has no control over those sites' privacy practices.
+  </p>
+
+  <h2>4. Permissions</h2>
+  <ul>
+    <li><strong>INTERNET</strong> — required to fetch data from Steam APIs.</li>
+    <li><strong>POST_NOTIFICATIONS</strong> — requested only if you enable review, sale, or event alerts. You may deny or revoke this permission at any time in Android Settings.</li>
+    <li><strong>RECEIVE_BOOT_COMPLETED</strong> — used to restart background notification checks after a device reboot, only when notifications are enabled.</li>
+  </ul>
+
+  <h2>5. Background Processing</h2>
+  <p>
+    When notification alerts are enabled, the App schedules a periodic background task
+    (approximately once per hour) via WorkManager. This task queries Steam APIs using
+    your locally stored keys and displays a notification if a monitored condition is met.
+    No data from this task is sent to the developer.
+  </p>
+
+  <h2>6. Children's Privacy</h2>
+  <p>
+    Game Watcher is intended for use by game developers and is not directed at children
+    under the age of 13. The App does not knowingly collect any information from children.
+  </p>
+
+  <h2>7. Changes to This Policy</h2>
+  <p>
+    If this Privacy Policy is updated, the new version will be published at this URL.
+    Continued use of the App after any changes constitutes acceptance of the updated policy.
+  </p>
+
+  <h2>8. Contact</h2>
+  <p>
+    If you have questions about this Privacy Policy, you can contact the developer at:
+    <a href="mailto:oreordaz@gmail.com">oreordaz@gmail.com</a>
+  </p>
+
+  <footer>
+    © 2026 oreordaz / Vertex Studio · Game Watcher is not affiliated with Valve Corporation.
+    Steam and the Steam logo are trademarks of Valve Corporation.
+  </footer>
+
+</main>
+</body>
+</html>
